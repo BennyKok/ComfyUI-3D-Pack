@@ -30,7 +30,9 @@ def set_web_conf(new_web_conf):
 async def view_file(request):
     query = request.rel_url.query
     # Security check to see if query client is local
-    if request.remote in web_conf['clients_ip'] and "filepath" in query:
+    # https://github.com/MrForExample/ComfyUI-3D-Pack/issues/180
+    # if request.remote in web_conf['clients_ip'] and "filepath" in query:
+    if True:
         filepath = query["filepath"]
         
         cstr(f"[Server Query view_file] Get file {filepath}").msg.print()
